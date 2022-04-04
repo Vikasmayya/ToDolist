@@ -89,10 +89,12 @@ const TodoList = () => {
                     
                     </Tooltip>
                     <br/>
-                    <ol>
-                        
+                    <ol style={{"paddingLeft":"0"}}>
+                    <hr style={{"color":"black","opacity":"0.5"}}/>
                         {newItem.map((val, id) => {
-                            return <div className="todo_style" key={val.id}>
+                            return (
+                                <>
+                                <div className="todo_style" key={val.id}>
                                     <Tooltip title="Edit Item">
                                     <span onClick={() => editItem(val.id)}> 
                                     <EditIcon className="deleteIcon"/>
@@ -104,7 +106,10 @@ const TodoList = () => {
                                     </span>
                                     </Tooltip>
                                     <li>{val.name}</li>
-                                    </div>
+                                </div>
+                                <hr/>
+                                </>
+                            )
                         })}
                     </ol>
                    { showResults?<Tooltip title="Remove all Items">
